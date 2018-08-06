@@ -11,7 +11,7 @@ class Board(QFrame):
 
     BoardWidth = 10
     BoardHeight = 22
-    Speed = 300
+    Speed = 300         # 图形下降速度
 
     def __init__(self, parent):
         super().__init__(parent)
@@ -50,7 +50,7 @@ class Board(QFrame):
 
         self.isStarted = True
         self.isWaitingAfterLine = False
-        self.numLinesRemoved = 0
+        self.numLinesRemoved = 0        # 记录当前已经消除了多少行
         self.clearBoard()
 
         self.msg2Statusbar.emit(str(self.numLinesRemoved))
@@ -196,6 +196,10 @@ class Board(QFrame):
             self.update()
 
     def newPiece(self):
+        """
+        创建新的形状
+        :return:
+        """
         self.curPiece = Shape()
         self.curPiece.setRandomShape()
         self.curX = Board.BoardWidth//2 + 1
