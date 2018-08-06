@@ -26,6 +26,9 @@ class Tetris(QMainWindow):
         self.show()
 
     def center(self):
+        """
+        获得显示器分辨率，将本应用移动到桌面中央
+        """
         screen = QDesktopWidget().screenGeometry()
         size = self.geometry()
         self.move( (screen.width() - size.width()) / 2,
